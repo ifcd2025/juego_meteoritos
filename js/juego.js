@@ -10,6 +10,9 @@ const musica = new Audio("sonidos/musica.mp3");
 musica.loop = true;
 const capsula = new Audio("sonidos/capsula.mp3");
 let iniciadoJuego = false;
+let record = localStorage.getItem("record") ? localStorage.getItem("record") : 0;
+document.getElementById("record").textContent = record;
+
 
 document.addEventListener("mousemove", (e) => {
   puntero.style.left = e.clientX + "px";
@@ -78,6 +81,10 @@ function impacto() {
   document.getElementById("iniciar").style.display = "block";
   document.body.style.backgroundImage = "url(imagenes/espacioGris.jpg)";
   iniciadoJuego = false;
+  if(tiempo > record) {
+    localStorage.setItem("record", tiempo);
+    document.getElementById("record").textContent = tiempo;
+  }
 }
 
 function incrementarTiempo() {
