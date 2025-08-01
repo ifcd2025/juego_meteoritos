@@ -1,0 +1,78 @@
+@font-face {
+    font-family: nulshock;
+    src: url(../fuentes/Nulshock\ Bd.otf);
+}
+
+#puntero {
+    position: fixed;
+    width: 50px;
+    height: 40px;
+    pointer-events: none; /* Si no usas pointer-events: none, los clics irán al cursor falso, no al elemento real debajo. */
+    z-index: 1000;
+    transform: translate(-50%, -50%); /* Para centrarlo en el puntero */
+}
+
+body {
+    background-image: url(../imagenes/espacio.jpg);
+    background-size: cover;
+    cursor: none; /* Ocultar cursor nativo */
+    height: 100vh;
+    overflow: hidden;
+}
+
+ header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color:yellow;
+    font-size: 1.3rem; 
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px;
+    span {
+        margin-right: 1rem;
+    }
+}
+
+.meteorito {
+    background-image: url(../imagenes/meteorito.png);
+    position: absolute;
+    animation: animacionMoverMeteorito 2s linear;
+    background-size: contain;
+    aspect-ratio: 1;
+}
+
+@keyframes animacionMoverMeteorito {
+    100% {
+        /*transform: translateX(-120vw);*/
+        left: -64px;
+    }
+}
+
+ #iniciar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* no haría falta por la animación */
+    color: yellow;
+    font-size: 4rem;
+    font-family: nulshock, sans-serif;
+    animation: animacionIniciar 2s infinite;
+}
+
+@keyframes animacionIniciar {
+    50% {
+        transform: translate(-50%, -50%) scale(1.2); /* ¡Aquí falta el translate para mantenerlo centrado! */
+    }
+   
+}
+
+.capsula {
+    background-image: url(../imagenes/capsula.png);
+    position: absolute;
+    animation: animacionMoverMeteorito 2s linear;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+}
+
